@@ -1,0 +1,7 @@
+body{
+    width: 1300px;
+}
+
+canvas{
+    border: 1px solid red;
+}
