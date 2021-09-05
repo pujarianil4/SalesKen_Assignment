@@ -4,14 +4,14 @@ var pause = document.getElementById("pause");
 var Counter = 0;
 var Interval;
 // Width and height of Canvas
-canvas.width = window.innerWidth - 20;
+canvas.width = "1300";
 canvas.height = "400";
 //
 var ctx = canvas.getContext("2d");
 
 function AudioPlayer() {
   // Parameters for AudioBar
-  var X = 30;
+  var X = 5;
   var Y = [];
   var width = 3;
   var height = [];
@@ -33,7 +33,7 @@ function AudioPlayer() {
       ctx.fillRect(X, Y[i], width, height[i]);
       X = X + 8;
       if (i == length - 1) {
-        X = 30;
+        X = 5;
       }
     }
     if (Counter == length - 1) {
@@ -42,9 +42,9 @@ function AudioPlayer() {
 
     Tag(100, 70, "green", "Introduction");
     Tag(200, 70, "blue", "one_six");
-    Tag(1200, 100, "blue", "Profile");
-    Tag(1100, 40, "gray", "Rapport Building-Empathy");
-    Tag(1200, 10, "orange", "Rapport Building- Energy");
+    Tag(1150, 100, "blue", "Profile");
+    Tag(1050, 40, "gray", "Rapport Building-Empathy");
+    Tag(1150, 10, "orange", "Rapport Building- Energy");
   };
 }
 
@@ -108,19 +108,15 @@ function Tag(x, y, color, text) {
 
 //Function to Start Audio from any Point
 function AudioStartFrom(e) {
-  var windowWidth;
-  var Totalwidth = canvas.width;
-  if (e.offsetX > Totalwidth / 2) {
-    windowWidth = Totalwidth * 0.006;
-  } else {
-    windowWidth = Totalwidth * 0.0063;
-  }
-  var position = e.offsetX / windowWidth;
-  Counter = Math.floor(position);
+  
+  var layer1= e.layerX/8
 
+
+  Counter = Math.floor(layer1);
+console.log(e)
   // Circle on Mouse Clicked
   ctx.beginPath();
-  ctx.arc(e.x, e.y, 30, 0, Math.PI * 2);
+  ctx.arc(e.offsetX, e.offsetY, 30, 0, Math.PI * 2);
   ctx.strokeStyle = "red";
   ctx.lineWidth = 3;
   ctx.stroke();

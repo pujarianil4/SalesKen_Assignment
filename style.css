@@ -1,5 +1,7 @@
-canvas {
-  margin: auto;
+.container{
+    width: 1300px;
+    margin: auto;
+    
 }
 
 .controllers {
