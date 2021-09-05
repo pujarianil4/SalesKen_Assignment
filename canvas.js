@@ -55,7 +55,7 @@ function PauseAudio(){
 function Tag(x,y,color,text){
    
     var textwidth= text.length*7
-   
+    var positionx= x+(textwidth/2)
    // Rectangle Box
     ctx.fillStyle=color
     ctx.fillRect(x,y,textwidth,20)
@@ -64,5 +64,19 @@ function Tag(x,y,color,text){
   ctx.fillStyle="white"
   ctx.font = "10pt bold";
   ctx.fillText(text,x+5,y+15);
+
+  //Line
+  ctx.beginPath();
+  ctx.moveTo( positionx,y+20)
+  ctx.lineTo(positionx,200)
+  ctx.strokeStyle= color
+  ctx.stroke()
+  ctx.closePath()
+
+  // Circle at the Bottom of tag
+  ctx.beginPath();
+  ctx.arc(positionx,200,5,0,Math.PI*2)
+  ctx.fillStyle= color;
+  ctx.fill()
     
 }
