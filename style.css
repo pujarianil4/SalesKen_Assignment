@@ -1,8 +1,7 @@
-body{
-    width: 1300px;
-}
+
 
 canvas{
+    margin: auto;
     border: 1px solid red;
 }
 

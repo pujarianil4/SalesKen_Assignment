@@ -27,6 +27,9 @@ function AudioBar() {
     ctx.fillRect(X, Y[i], width, height[i]);
     X=X+8
   }
+
+  Tag(100,70,"green","Introduction")
+ 
 }
 
 //invoked AudioBar() to display
@@ -45,4 +48,18 @@ function PauseAudio(){
 
     play.style.display= "block"
     pause.style.display= "none"
+}
+
+// Function For Creating Tags
+
+function Tag(x,y,color,text){
+   
+    var textwidth= text.length*7
+   
+   // Rectangle Box
+    ctx.fillStyle=color
+    ctx.fillRect(x,y,textwidth,20)
+
+
+    
 }
