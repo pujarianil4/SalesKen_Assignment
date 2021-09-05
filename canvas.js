@@ -60,6 +60,9 @@ function Tag(x,y,color,text){
     ctx.fillStyle=color
     ctx.fillRect(x,y,textwidth,20)
 
-
+  // Text inside Rectangle Box
+  ctx.fillStyle="white"
+  ctx.font = "10pt bold";
+  ctx.fillText(text,x+5,y+15);
     
 }
