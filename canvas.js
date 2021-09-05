@@ -7,35 +7,39 @@ canvas.height = "400";
 //
 var ctx = canvas.getContext("2d");
 
-//Parameters for audioBar
-var X = 30;
-var Y = [];
-var width = 3;
-var height = [];
 
-// Creating array of Y position and height of bar
-for (let i = 0; i < 160; i++) {
-  Y.push(Math.random() * 70 + 100);
-  height.push(Math.random() * 100 + 100);
-}
+function AudioPlayer() {
+  // Parameters for AudioBar
+  var X = 30;
+  var Y = [];
+  var width = 3;
+  var height = [];
 
-// Function to Create Audiobar
-function AudioBar() {
-  ctx.fillStyle = "gray";
-  var length = 160;
-  for (let i = 1; i < length; i++) {
-    ctx.fillRect(X, Y[i], width, height[i]);
-    X = X + 8;
+  // Creating array of Y position and height of bar
+  for (let i = 0; i < 160; i++) {
+    Y.push(Math.random() * 70 + 100);
+    height.push(Math.random() * 100 + 100);
   }
 
-  Tag(100, 70, "green", "Introduction");
-  Tag(200, 70, "blue", "one_six");
-  Tag(1200, 100, "blue", "Profile");
-  Tag(1100, 40, "gray", "Rapport Building-Empathy");
-  Tag(1200, 10, "orange", "Rapport Building- Energy");
+  // Function to Create Audiobar
+  return function () {
+    ctx.fillStyle = "gray";
+    var length = 160;
+    for (let i = 1; i < length; i++) {
+      ctx.fillRect(X, Y[i], width, height[i]);
+      X = X + 8;
+    }
+
+    Tag(100, 70, "green", "Introduction");
+    Tag(200, 70, "blue", "one_six");
+    Tag(1200, 100, "blue", "Profile");
+    Tag(1100, 40, "gray", "Rapport Building-Empathy");
+    Tag(1200, 10, "orange", "Rapport Building- Energy");
+  };
 }
 
 //invoked AudioBar() to display
+var AudioBar = AudioPlayer();
 AudioBar();
 
 // Function for Play the Audio
