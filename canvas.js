@@ -85,7 +85,9 @@ function Tag(x, y, color, text) {
   var positionx = x + textwidth / 2;
   // Rectangle Box
   ctx.fillStyle = color;
+  ctx.beginPath();
   ctx.fillRect(x, y, textwidth, 20);
+  ctx.closePath();
 
   // Text inside Rectangle Box
   ctx.fillStyle = "white";
@@ -105,6 +107,8 @@ function Tag(x, y, color, text) {
   ctx.arc(positionx, 200, 5, 0, Math.PI * 2);
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.closePath();
+  
 }
 
 //Function to Start Audio from any Point
@@ -118,7 +122,21 @@ function AudioStartFrom(e){
   }
  var position= e.offsetX/windowWidth
  Counter= Math.floor(position)
- AudioBar()
+
+ ctx.beginPath();
+ ctx.arc(e.x, e.y, 30, 0, Math.PI * 2);
+ ctx.strokeStyle = "red";
+ ctx.lineWidth=3;
+ ctx.stroke();
+ ctx.closePath()
+ 
+ setTimeout(() => {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  AudioBar()
+ }, 100);
+
+ 
+
 }
 
 canvas.addEventListener("click",AudioStartFrom)
