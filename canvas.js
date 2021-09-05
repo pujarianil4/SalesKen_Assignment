@@ -22,6 +22,7 @@ function AudioPlayer() {
     Y.push(Math.random() * 70 + 100);
     height.push(Math.random() * 100 + 100);
   }
+  
 
   // Function to Create Audiobar
   return function () {
@@ -57,7 +58,9 @@ AudioBar();
 function PlayAudio() {
   play.style.display = "none";
   pause.style.display = "block";
+
   clearInterval(Interval)
+
   Interval = setInterval(() => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     Counter++
@@ -103,3 +106,19 @@ function Tag(x, y, color, text) {
   ctx.fillStyle = color;
   ctx.fill();
 }
+
+//Function to Start Audio from any Point
+function AudioStartFrom(e){
+  var windowWidth
+  var Totalwidth = canvas.width
+  if(e.offsetX>Totalwidth/2){
+      windowWidth=Totalwidth*0.006
+  }else{
+      windowWidth=Totalwidth*0.0063
+  }
+ var position= e.offsetX/windowWidth
+ Counter= Math.floor(position)
+ AudioBar()
+}
+
+canvas.addEventListener("click",AudioStartFrom)
