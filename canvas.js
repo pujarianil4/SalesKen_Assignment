@@ -1,6 +1,8 @@
 var canvas = document.getElementById("canvas");
 var play = document.getElementById("play");
 var pause = document.getElementById("pause");
+var Counter= 0
+var Interval
 // Width and height of Canvas
 canvas.width = window.innerWidth - 20;
 canvas.height = "400";
@@ -23,12 +25,21 @@ function AudioPlayer() {
 
   // Function to Create Audiobar
   return function () {
-    ctx.fillStyle = "gray";
+    ctx.fillStyle = "red";
     var length = 160;
     for (let i = 1; i < length; i++) {
+      if(i>Counter){
+        ctx.fillStyle = "gray";
+      }
       ctx.fillRect(X, Y[i], width, height[i]);
       X = X + 8;
+      if(i==length-1){
+        X=30
     }
+    }
+    if(Counter==length-1){
+      clearInterval(Interval)
+  }
 
     Tag(100, 70, "green", "Introduction");
     Tag(200, 70, "blue", "one_six");
@@ -46,12 +57,22 @@ AudioBar();
 function PlayAudio() {
   play.style.display = "none";
   pause.style.display = "block";
+  clearInterval(Interval)
+  Interval = setInterval(() => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    Counter++
+    AudioBar()
+   
+  }, 1000);
 }
+
 
 // Function for Pause the Audio
 function PauseAudio() {
   play.style.display = "block";
   pause.style.display = "none";
+
+  clearInterval(Interval)
 }
 
 // Function For Creating Tags
