@@ -5,3 +5,36 @@ body{
 canvas{
     border: 1px solid red;
 }
+
+.controllers{
+    width: 280px;
+  
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+i{
+    color: rgb(4, 207, 207);
+}
+#valume,#forward{
+    margin: 20px 0px;
+     height: 30px;
+     width: 100px;
+    border-radius: 20px;
+    border: 2px solid gray;
+    background-color: white;
+}
+#play,#pause{
+    height: 50px;
+    margin: 10px 0px;
+    padding: 10px;
+    width: 70px;
+    border-radius: 30px;
+    border: 2px solid gray;
+    background-color: white;
+}
+
+#pause{
+    display: none;
+}

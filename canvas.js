@@ -1,8 +1,13 @@
 var canvas = document.getElementById("canvas");
+var play= document.getElementById("play")
+var pause = document.getElementById("pause")
+// Width and height of Canvas
 canvas.width = window.innerWidth - 20;
 canvas.height = "400";
+//
 var ctx = canvas.getContext("2d");
 
+//Parameters for audioBar
 var X = 30;
 var Y = [];
 var width = 3;
@@ -24,4 +29,20 @@ function AudioBar() {
   }
 }
 
+//invoked AudioBar() to display
 AudioBar()
+
+// Function for Play the Audio
+function PlayAudio(){
+
+    play.style.display= "none"
+    pause.style.display= "block"
+
+}
+
+// Function for Pause the Audio
+function PauseAudio(){
+
+    play.style.display= "block"
+    pause.style.display= "none"
+}
